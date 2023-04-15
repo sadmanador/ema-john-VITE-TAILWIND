@@ -83,7 +83,7 @@ function App() {
                   <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
                 </svg>
               </a>
-              <ul class="p-2 text-black">
+              <ul class="p-2 text-black shadow">
                 <li>
                   <a>Submenu 1</a>
                 </li>
@@ -124,7 +124,7 @@ function App() {
               tabIndex={0}
               className="mt-3 card card-compact dropdown-content w-52 bg-base-100 shadow"
             >
-              <div className="card-body text-black">
+              <div className="card-body text-black shadow rounded-md">
                 <span className="font-bold text-lg">8 Items</span>
                 <span className="text-info">Subtotal: $999</span>
                 <div className="card-actions">
