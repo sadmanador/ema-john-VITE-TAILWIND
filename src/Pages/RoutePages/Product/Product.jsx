@@ -2,6 +2,7 @@ import React from "react";
 
 const Product = ({ product, handleAddToCart }) => {
   const { id, name, seller, price, ratings, img } = product;
+  
 
   return (
     <div className=" card p-4 border rounded-lg flex flex-col justify-between">

@@ -1,12 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import Product from "../RoutePages/Product/Product";
+import Cart from "../Cart/Cart";
 
 const Home = () => {
   const products = useLoaderData();
+  const [cart, setCart] = useState([])
 
   const handleAddToCart = (product) => {
-    console.log(product)
+    let newCart = [...cart, product]
+    setCart(newCart)
+    console.log(cart)
   }
   
 
@@ -21,7 +25,9 @@ const Home = () => {
         ></Product>
         ))}
       </div>
-      <div className="bg-orange-200 cart sticky top-0">Cart</div>
+      <div className="bg-orange-200 cart sticky top-0">
+        <Cart cart={cart}></Cart>
+      </div>
     </div>
   );
 };
