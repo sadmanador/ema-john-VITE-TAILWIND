@@ -1,6 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../layouts/Main";
-import Home from "../../Pages/Home/Home";
+import Home from "../Pages/Home/Home";
 
 export const router = createBrowserRouter([
   {
@@ -10,6 +10,10 @@ export const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
+        loader: async(params) => {
+          return fetch('/fakeData/products.json')
+        }
+        
       },
     ],
   },
