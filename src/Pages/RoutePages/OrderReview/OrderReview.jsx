@@ -27,7 +27,7 @@ const OrderReview = () => {
 
 
   return (
-    <div className="grid grid-cols-home gap-10">
+    <div className="lg:grid grid-cols-home gap-10">
       <div className="mx-auto">
         {
             cart.map(product=> <OrderReviewSingleProduct

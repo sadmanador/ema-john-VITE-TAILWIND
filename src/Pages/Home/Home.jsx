@@ -44,8 +44,8 @@ const Home = () => {
   
 
   return (
-    <div className="grid grid-cols-home gap-10">
-      <div className="grid grid-cols-3 gap-5 mt-24 mx-28">
+    <div className="lg:grid grid-cols-home gap-10">
+      <div className="lg:grid grid-cols-3 gap-5 mt-24 mx-28">
         {products.map((product) => (
           <Product
             key={product.id}

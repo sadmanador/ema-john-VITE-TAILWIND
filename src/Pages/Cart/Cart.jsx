@@ -5,7 +5,7 @@ import { deleteShoppingCart } from "../../utilities/fakedb";
 import { CartContext } from "../../contexts/DataContext/DataContext";
 
 const Cart = ({ cart }) => {
-  const { setCart } = useContext(CartContext);
+  const { setCart, grandTotal, setGrandTotal } = useContext(CartContext);
   let quantity = 0;
   let total = 0;
   let shipping = 0;
@@ -16,7 +16,8 @@ const Cart = ({ cart }) => {
     shipping = shipping + product.shipping;
     tax = (total * 0.1).toFixed(2);
   }
-  const grandTotal = shipping + total + parseFloat(tax);
+  const subtotal = shipping + total + parseFloat(tax);
+  setGrandTotal(subtotal)
 
   const clearCart = () => {
     setCart([]);
