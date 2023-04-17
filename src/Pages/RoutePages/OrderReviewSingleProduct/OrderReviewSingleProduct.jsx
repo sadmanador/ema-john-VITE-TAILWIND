@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { TbTrashX } from "react-icons/tb";
 import { CartContext } from "../../../contexts/DataContext/DataContext";
-import { removeFromDb } from "../../../utilities/fakedb";
+import { addToLocalStorage, removeFromDb } from "../../../utilities/fakedb";
 import { AiFillCaretLeft, AiFillCaretRight } from "react-icons/ai";
 
 const OrderReviewSingleProduct = ({ product }) => {
@@ -13,6 +13,25 @@ const OrderReviewSingleProduct = ({ product }) => {
     let newCart = [...rest];
     setCart(newCart);
     removeFromDb(selectedId);
+  };
+
+  const handleQuantity = (id, increase) => {
+    let newCart = [];
+    const selectedProduct = cart.find((p) => id == p.id);
+    let quantity = selectedProduct.quantity;
+    if (increase) {
+      if (selectedProduct) {
+        selectedProduct.quantity = quantity + 1;
+        newCart = [...cart, selectedProduct];
+      }
+    } else {
+      if (selectedProduct) {
+        selectedProduct.quantity = quantity - 1;
+        newCart = [...cart, selectedProduct];
+      }
+    }
+    setCart(newCart);
+    addToLocalStorage(id);
   };
 
   return (
@@ -45,11 +64,17 @@ const OrderReviewSingleProduct = ({ product }) => {
         </div>
       </div>
       <div className="self-center mr-12">
-        <button className="btn btn-sm btn-info btn-outline">
+        <button
+          onClick={() => handleQuantity(id, false)}
+          className="btn btn-sm btn-info btn-outline"
+        >
           <AiFillCaretLeft />
         </button>
         <span className="mx-4">{quantity}</span>
-        <button className="btn btn-sm btn-info btn-outline">
+        <button
+          onClick={() => handleQuantity(id, true)}
+          className="btn btn-sm btn-info btn-outline"
+        >
           <AiFillCaretRight />
         </button>
       </div>
