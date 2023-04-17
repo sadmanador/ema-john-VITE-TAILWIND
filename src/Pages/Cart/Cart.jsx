@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
 import { CartContext } from "../../contexts/DataContext/DataContext";
 
-const Cart = ({cart}) => {
-
+const Cart = () => {
+  const {cart} = useContext(CartContext);
 
   let quantity = 0;
   let total = 0;
@@ -18,17 +18,16 @@ const Cart = ({cart}) => {
 
   return (
     <div className="m-6">
-      <h1 className="font-bold text-3xl text-center border-b-2 mb-4 pb-2 border-black">
+      <h1 className="font-bold lg:text-4xl text-xl text-center border-b-2 mb-4 pb-2 border-black">
         Order Summary
       </h1>
-      <h2 className="text-xl font-semibold">Number of Items: {quantity}</h2>
-      <div className="ml-4">
+      <div className="ml-4 text-md lg:text-2xl font-semibold">
         <p>Total: ${total}</p>
         <p>Shipping: ${shipping}</p>
         <p>Tax: {tax}</p>
       </div>
-      <p className="text-lg font-semibold">
-        Grand Total: ${grandTotal.toFixed(2)}
+      <p className="text-lg lg:text-3xl font-semibold ml-4 mt-6">
+        <span className="font-bold">Grand Total:</span> ${grandTotal.toFixed(2)}
       </p>
     </div>
   );

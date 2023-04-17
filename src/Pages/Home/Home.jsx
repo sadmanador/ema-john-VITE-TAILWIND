@@ -7,8 +7,8 @@ import { CartContext } from "../../contexts/DataContext/DataContext";
 
 const Home = () => {
   const products = useLoaderData();
-  const [ cart, setCart ] = useState([]);
-  
+  const {cart, setCart} = useContext(CartContext);
+
   useEffect(() => {
     const storedCart = getShoppingCart();
     const savedCart = [];
@@ -51,7 +51,7 @@ const Home = () => {
         ))}
       </div>
       <div className="bg-orange-200 cart sticky top-0">
-        <Cart cart={cart}></Cart>
+        <Cart></Cart>
       </div>
     </div>
   );
