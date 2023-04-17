@@ -1,12 +1,13 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
     <div className="App bg-slate-800 text-white px-32">
       <div className="navbar">
-        <div className="flex-1">
+        <Link to='/' className="flex-1">
           <img src="images/Logo.svg" alt="" />
-        </div>
+        </Link>
 
         <div className="dropdown">
           <label tabIndex="0" className="btn btn-ghost lg:hidden">
@@ -30,13 +31,13 @@ const Navbar = () => {
             className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52  text-black"
           >
             <li>
-              <a>Item 1</a>
-            </li>
-            <li tabIndex="0">
-              <a className="justify-between">Parent</a>
+              <Link to='/'>Home</Link>
             </li>
             <li>
-              <a>Item 3</a>
+              <Link to='/order-review'>Order Review</Link>
+            </li>
+            <li>
+              <Link>Item 3</Link>
             </li>
           </ul>
         </div>
@@ -44,13 +45,13 @@ const Navbar = () => {
         <div className="navbar-center hidden lg:flex flex-1">
           <ul className="menu menu-horizontal px-1">
             <li>
-              <a>Item 1</a>
-            </li>
-            <li tabIndex="0">
-              <a>Parent</a>
+              <Link to='/'>Home</Link>
             </li>
             <li>
-              <a>Item 3</a>
+              <Link to='/order-review'>Order Review</Link>
+            </li>
+            <li>
+              <Link>Item 3</Link>
             </li>
           </ul>
         </div>

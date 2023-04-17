@@ -1,8 +1,8 @@
 import React from "react";
+import { BsFillCartPlusFill } from "react-icons/bs";
 
 const Product = ({ product, handleAddToCart }) => {
   const { id, name, seller, price, ratings, img } = product;
-  
 
   return (
     <div className=" card p-4 border rounded-lg flex flex-col justify-between">
@@ -18,8 +18,12 @@ const Product = ({ product, handleAddToCart }) => {
         </div>
       </div>
       <div className="bottom-0">
-        <button onClick={()=> handleAddToCart(product)} className=" btn border-none hover:bg-orange-400 bg-orange-200 w-full font-semibold text-xl normal-case">
+        <button
+          onClick={() => handleAddToCart(product)}
+          className=" btn border-none hover:bg-orange-400 bg-orange-200 w-full font-semibold text-xl normal-case"
+        >
           Add To Cart
+          <BsFillCartPlusFill className="ml-4"/>
         </button>
       </div>
     </div>
