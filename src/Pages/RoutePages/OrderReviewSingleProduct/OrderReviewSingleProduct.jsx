@@ -1,8 +1,19 @@
-import React from "react";
+import React, { useContext } from "react";
 import { TbTrashX } from "react-icons/tb";
+import { CartContext } from "../../../contexts/DataContext/DataContext";
+import { removeFromDb } from "../../../utilities/fakedb";
 
 const OrderReviewSingleProduct = ({ product }) => {
-  const { img, name, price, shipping, quantity } = product;
+    const {cart, setCart} = useContext(CartContext);
+    const { id,img, name, price, shipping, quantity } = product;
+
+    const handleRemoveProduct = (selectedId) => {
+      const rest = cart.filter(cartItem => cartItem.id !== selectedId)
+      let newCart = [...rest,]
+      setCart(newCart)
+      removeFromDb(selectedId)
+    }
+    
 
   return (
     <div className=" rounded-lg my-6 flex justify-between gap-10 shadow-lg">
@@ -27,7 +38,7 @@ const OrderReviewSingleProduct = ({ product }) => {
         </div>
       </div>
       <div className="self-center mr-12">
-        <button className="btn btn-error rounded-full">
+        <button onClick={()=>handleRemoveProduct(id)} className="btn btn-error rounded-full">
           <TbTrashX className="text-3xl" />
         </button>
       </div>

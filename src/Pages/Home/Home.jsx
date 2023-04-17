@@ -1,9 +1,9 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect } from "react";
 import { useLoaderData } from "react-router-dom";
+import { CartContext } from "../../contexts/DataContext/DataContext";
 import { addToLocalStorage, getShoppingCart } from "../../utilities/fakedb";
 import Cart from "../Cart/Cart";
 import Product from "../Product/Product";
-import { CartContext } from "../../contexts/DataContext/DataContext";
 
 const Home = () => {
   const products = useLoaderData();
@@ -39,6 +39,9 @@ const Home = () => {
     setCart(newCart);
     addToLocalStorage(selectedProduct.id);
   };
+
+  
+  
 
   return (
     <div className="grid grid-cols-home gap-10">
