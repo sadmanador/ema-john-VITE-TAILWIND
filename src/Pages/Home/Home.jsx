@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useLoaderData } from "react-router-dom";
-import Product from "../RoutePages/Product/Product";
+import Product from "../Product/Product";
 import Cart from "../Cart/Cart";
 
 const Home = () => {
