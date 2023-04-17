@@ -40,7 +40,7 @@ const Cart = ({ cart }) => {
         <div className="ml-6 text-md lg:text-2xl font-semibold">
           <p>Total: ${total}</p>
           <p>Shipping: ${shipping}</p>
-          <p>Tax: {tax}</p>
+          <p>Tax: ${tax}</p>
         </div>
         <p className="text-lg lg:text-3xl font-semibold ml-4 mt-6">
           <span className="font-bold">Grand Total:</span> $

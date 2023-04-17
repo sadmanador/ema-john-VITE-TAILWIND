@@ -12,7 +12,7 @@ const Navbar = () => {
 
   return (
     <div className="App bg-slate-800 text-white px-32">
-      <div className="navbar">
+      <div className="navbar h-20">
         <Link to='/' className="flex-1">
           <img src="images/Logo.svg" alt="" />
         </Link>
@@ -64,13 +64,15 @@ const Navbar = () => {
           </ul>
         </div>
 
+
+    {/* cart icon */}
         <div className="flex-none">
           <div className="dropdown dropdown-end">
             <label tabIndex={0} className="btn btn-ghost btn-circle">
               <div className="indicator">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5"
+                  className="h-10 w-10"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -102,9 +104,10 @@ const Navbar = () => {
             </div>
           </div>
 
-          <div className="dropdown dropdown-end">
+          {/* profile Pic */}
+          <div className="dropdown dropdown-end ml-4">
             <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-              <div className="w-10 rounded-full">
+              <div className="w-18 rounded-full">
                 <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" />
               </div>
             </label>
