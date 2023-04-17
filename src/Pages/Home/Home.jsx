@@ -1,13 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
-import Product from "../Product/Product";
-import Cart from "../Cart/Cart";
 import { addToLocalStorage, getShoppingCart } from "../../utilities/fakedb";
+import Cart from "../Cart/Cart";
+import Product from "../Product/Product";
+import { CartContext } from "../../contexts/DataContext/DataContext";
 
 const Home = () => {
   const products = useLoaderData();
-  const [cart, setCart] = useState([]);
-
+  const [ cart, setCart ] = useState([]);
+  
   useEffect(() => {
     const storedCart = getShoppingCart();
     const savedCart = [];

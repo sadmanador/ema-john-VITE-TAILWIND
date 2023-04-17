@@ -1,11 +1,11 @@
-import React, { createContext } from 'react';
+import React, { createContext, useState } from 'react';
 
-export const CartContext = createContext()
+export const CartContext = createContext({})
 
 const DataContext = ({children}) => {
-    const [cart, setCart] = useState([]);
+    const [text, setText] = useState("hello");
 
-    const cartInfo = {cart, setCart}
+    const cartInfo = {text, setText}
     return (
         <CartContext value={cartInfo}>
             {children}

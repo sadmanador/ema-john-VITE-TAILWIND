@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
+import { CartContext } from "../../contexts/DataContext/DataContext";
 
-const Cart = ({ cart }) => {
-  console.log(cart);
+const Cart = ({cart}) => {
+
 
   let quantity = 0;
   let total = 0;
@@ -14,7 +15,6 @@ const Cart = ({ cart }) => {
     tax = (total * 0.1).toFixed(2);
   }
   const grandTotal = shipping + total + parseFloat(tax);
-  // console.log(total,tax,shipping,grandTotal)
 
   return (
     <div className="m-6">
