@@ -22,6 +22,7 @@ const Home = () => {
     }
     setCart(savedCart);
   }, [products]);
+  console.log(cart)
 
   const handleAddToCart = (selectedProduct) => {
     let newCart = [];

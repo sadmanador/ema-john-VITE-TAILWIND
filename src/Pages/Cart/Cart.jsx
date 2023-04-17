@@ -1,8 +1,9 @@
 import React, { useContext } from "react";
+import { BsFillCartFill } from "react-icons/bs";
 import { CartContext } from "../../contexts/DataContext/DataContext";
 
 const Cart = () => {
-  const {cart} = useContext(CartContext);
+  const { cart } = useContext(CartContext);
 
   let quantity = 0;
   let total = 0;
@@ -21,7 +22,12 @@ const Cart = () => {
       <h1 className="font-bold lg:text-4xl text-xl text-center border-b-2 mb-4 pb-2 border-black">
         Order Summary
       </h1>
-      <div className="ml-4 text-md lg:text-2xl font-semibold">
+      <div className="text-end relative">
+        {" "}
+        <BsFillCartFill className="inline text-6xl" />
+        <span className="badge badge-success absolute right-0 top-1 text-lg font-semibold rounded-full">{quantity}</span>
+      </div>
+      <div className="ml-6 text-md lg:text-2xl font-semibold">
         <p>Total: ${total}</p>
         <p>Shipping: ${shipping}</p>
         <p>Tax: {tax}</p>
