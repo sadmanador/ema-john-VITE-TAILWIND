@@ -2,8 +2,8 @@ import React, { useContext } from "react";
 import { BsFillCartFill } from "react-icons/bs";
 import { CartContext } from "../../contexts/DataContext/DataContext";
 
-const Cart = () => {
-  const { cart } = useContext(CartContext);
+const Cart = ({cart}) => {
+ 
 
   let quantity = 0;
   let total = 0;

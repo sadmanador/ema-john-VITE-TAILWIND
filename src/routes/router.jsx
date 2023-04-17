@@ -19,6 +19,9 @@ export const router = createBrowserRouter([
       {
         path: "/order-review",
         element: <OrderReview></OrderReview>,
+        loader: async(params) => {
+          return fetch('/fakeData/products.json')
+        },
       },
       {
         path: "*",

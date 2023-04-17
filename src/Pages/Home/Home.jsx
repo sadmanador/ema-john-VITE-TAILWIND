@@ -22,7 +22,7 @@ const Home = () => {
     }
     setCart(savedCart);
   }, [products]);
-  console.log(cart)
+
 
   const handleAddToCart = (selectedProduct) => {
     let newCart = [];
@@ -52,7 +52,7 @@ const Home = () => {
         ))}
       </div>
       <div className="bg-orange-200 cart sticky top-0">
-        <Cart></Cart>
+        <Cart cart={cart}></Cart>
       </div>
     </div>
   );
