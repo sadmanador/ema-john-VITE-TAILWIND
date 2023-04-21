@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { CartContext } from "../../../contexts/DataContext/DataContext";
+import ThemeSwitcher from "../ThemeSwitcher/ThemeSwitcher";
 
 
 const Navbar = () => {
@@ -84,7 +85,8 @@ const Navbar = () => {
                 404
               </NavLink>
             </li>
-            
+            <li>
+            </li>
           </ul>
         </div>
 

@@ -45,6 +45,10 @@ const Home = () => {
 
   return (
     <div className="lg:grid grid-cols-home gap-10">
+      <div className="bg-orange-200 lg:cart sticky top-0 lg:hidden p-6">
+        <Cart cart={cart}></Cart>
+      </div>
+
       <div className="lg:grid grid-cols-3 gap-5 mt-24 mx-28">
         {products.map((product) => (
           <Product
@@ -54,7 +58,7 @@ const Home = () => {
           ></Product>
         ))}
       </div>
-      <div className="bg-orange-200 cart sticky top-0">
+      <div className="bg-orange-200 lg:cart sticky top-0 lg:block hidden">
         <Cart cart={cart}></Cart>
       </div>
     </div>

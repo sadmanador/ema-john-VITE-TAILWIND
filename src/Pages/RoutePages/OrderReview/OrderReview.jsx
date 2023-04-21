@@ -28,6 +28,9 @@ const OrderReview = () => {
 
   return (
     <div className="lg:grid grid-cols-home gap-10">
+      <div className="bg-orange-200 lg:hidden sticky top-0 p-6">
+        <Cart cart={cart}></Cart>
+      </div>
       <div className="mx-auto">
         {
             cart.map(product=> <OrderReviewSingleProduct
@@ -36,7 +39,7 @@ const OrderReview = () => {
         }
       </div>
       
-      <div className="bg-orange-200 cart sticky top-0">
+      <div className="bg-orange-200 cart sticky top-0 lg:block hidden">
         <Cart cart={cart}></Cart>
       </div>
     </div>
