@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { TbTrashX } from "react-icons/tb";
 import { CartContext } from "../../../contexts/DataContext/DataContext";
 import { addToLocalStorage, removeFromDb } from "../../../utilities/fakedb";
@@ -8,8 +8,6 @@ const OrderReviewSingleProduct = ({ product }) => {
   const { cart, setCart } = useContext(CartContext);
   const { id, img, name, price, shipping, quantity } = product;
 
-
-  
   const handleRemoveProduct = (selectedId) => {
     const rest = cart.filter((cartItem) => cartItem.id !== selectedId);
     let newCart = [...rest];
@@ -20,21 +18,24 @@ const OrderReviewSingleProduct = ({ product }) => {
   const handleQuantity = (id, increase) => {
     let newCart = [];
     const selectedProduct = cart.find((p) => id == p.id);
-    const restOfTheProducts = cart.filter(p=> id !== p.id)
+    const restOfTheProducts = cart.filter((p) => id !== p.id);
     let quantity = selectedProduct.quantity;
     if (increase) {
       if (selectedProduct) {
         selectedProduct.quantity = quantity + 1;
-        newCart = [ selectedProduct,...restOfTheProducts];
+        newCart = [selectedProduct, ...restOfTheProducts];
+        addToLocalStorage(id, true);
       }
     } else {
-      if (selectedProduct) {
+      if (selectedProduct.quantity > 0) {
         selectedProduct.quantity = quantity - 1;
-        newCart = [ selectedProduct,...restOfTheProducts];
+        newCart = [selectedProduct, ...restOfTheProducts];
+        addToLocalStorage(id, false);
+      } else {
+        return;
       }
     }
     setCart(newCart);
-    addToLocalStorage(id);
   };
 
   return (

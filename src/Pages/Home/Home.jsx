@@ -37,7 +37,7 @@ const Home = () => {
     }
 
     setCart(newCart);
-    addToLocalStorage(selectedProduct.id);
+    addToLocalStorage(selectedProduct.id, true);
   };
 
   
