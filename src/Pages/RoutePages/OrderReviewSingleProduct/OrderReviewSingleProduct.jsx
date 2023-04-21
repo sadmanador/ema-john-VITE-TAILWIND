@@ -3,6 +3,7 @@ import { TbTrashX } from "react-icons/tb";
 import { CartContext } from "../../../contexts/DataContext/DataContext";
 import { addToLocalStorage, removeFromDb } from "../../../utilities/fakedb";
 import { AiFillCaretLeft, AiFillCaretRight } from "react-icons/ai";
+import { toast } from "react-hot-toast";
 
 const OrderReviewSingleProduct = ({ product }) => {
   const { cart, setCart } = useContext(CartContext);
@@ -27,12 +28,12 @@ const OrderReviewSingleProduct = ({ product }) => {
         addToLocalStorage(id, true);
       }
     } else {
-      if (selectedProduct.quantity > 0) {
+      if (selectedProduct.quantity > 1) {
         selectedProduct.quantity = quantity - 1;
         newCart = [selectedProduct, ...restOfTheProducts];
         addToLocalStorage(id, false);
       } else {
-        return;
+        return toast.error('You cannot select less than "1" products, Else click on cross button');
       }
     }
     setCart(newCart);
