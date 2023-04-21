@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { CartContext } from "../../../contexts/DataContext/DataContext";
 
 const Navbar = () => {
-  const {cart, grandTotal} = useContext(CartContext);
+  const { cart, grandTotal } = useContext(CartContext);
 
   let quantity = 0;
   for (const product of cart) {
@@ -13,7 +13,7 @@ const Navbar = () => {
   return (
     <div className="App bg-slate-800 text-white px-32">
       <div className="navbar h-20">
-        <Link to='/' className="flex-1">
+        <Link to="/" className="flex-1">
           <img src="images/Logo.svg" alt="" />
         </Link>
 
@@ -39,10 +39,10 @@ const Navbar = () => {
             className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52  text-black"
           >
             <li>
-              <Link to='/'>Home</Link>
+              <Link to="/">Home</Link>
             </li>
             <li>
-              <Link to='/order-review'>Order Review</Link>
+              <Link to="/order-review">Order Review</Link>
             </li>
             <li>
               <Link>Item 3</Link>
@@ -53,19 +53,38 @@ const Navbar = () => {
         <div className="navbar-center hidden lg:flex flex-1">
           <ul className="menu menu-horizontal px-1 text-xl font-semibold">
             <li>
-              <Link to='/'>Home</Link>
+              <NavLink
+                className={({ isActive, isPending }) =>
+                  isPending ? "pending" : isActive ? "active" : ""
+                }
+                to="/"
+              >
+                Home
+              </NavLink>
             </li>
             <li>
-              <Link to='/order-review'>Order Review</Link>
+              <NavLink
+                className={({ isActive, isPending }) =>
+                  isPending ? "pending" : isActive ? "active" : ""
+                }
+                to="/order-review"
+              >
+                Order Review
+              </NavLink>
             </li>
             <li>
-              <Link>Item 3</Link>
+              <NavLink to='/new'
+                className={({ isActive, isPending }) =>
+                  isPending ? "pending" : isActive ? "active" : ""
+                }
+              >
+                404
+              </NavLink>
             </li>
           </ul>
         </div>
 
-
-    {/* cart icon */}
+        {/* cart icon */}
         <div className="flex-none">
           <div className="dropdown dropdown-end">
             <label tabIndex={0} className="btn btn-ghost btn-circle">
@@ -84,7 +103,9 @@ const Navbar = () => {
                     d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
                   />
                 </svg>
-                <span className="badge badge-sm indicator-item">{quantity}</span>
+                <span className="badge badge-sm indicator-item">
+                  {quantity}
+                </span>
               </div>
             </label>
 
@@ -94,8 +115,10 @@ const Navbar = () => {
             >
               <div className="card-body text-black shadow rounded-md">
                 <span className="font-bold text-lg">{quantity} Items</span>
-                <span className="text-info text-xl">Subtotal: ${grandTotal}</span>
-                <Link to='order-review' className="card-actions">
+                <span className="text-info text-xl">
+                  Subtotal: ${grandTotal}
+                </span>
+                <Link to="order-review" className="card-actions">
                   <button className="btn btn-primary btn-block">
                     View cart
                   </button>
