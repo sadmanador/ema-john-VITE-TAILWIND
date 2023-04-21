@@ -1,10 +1,11 @@
 import React, { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { CartContext } from "../../../contexts/DataContext/DataContext";
-import ThemeSwitcher from "../ThemeSwitcher/ThemeSwitcher";
+
 
 const Navbar = () => {
   const { cart, grandTotal } = useContext(CartContext);
+  
 
   let quantity = 0;
   for (const product of cart) {
@@ -74,7 +75,8 @@ const Navbar = () => {
               </NavLink>
             </li>
             <li>
-              <NavLink to='/new'
+              <NavLink
+                to="/new"
                 className={({ isActive, isPending }) =>
                   isPending ? "pending" : isActive ? "active" : ""
                 }
@@ -82,9 +84,7 @@ const Navbar = () => {
                 404
               </NavLink>
             </li>
-            {/* <li>
-              <ThemeSwitcher></ThemeSwitcher>
-            </li> */}
+            
           </ul>
         </div>
 

@@ -5,3 +5,12 @@
 .cart{
     height: 100vh;
 }
+
+:root[data-theme="light"] {
+    /* light theme styles */
+  }
+  
+  :root[data-theme="dark"] {
+    /* dark theme styles */
+  }
+  
