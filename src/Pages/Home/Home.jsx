@@ -4,10 +4,13 @@ import { CartContext } from "../../contexts/DataContext/DataContext";
 import { addToLocalStorage, getShoppingCart } from "../../utilities/fakedb";
 import Cart from "../Cart/Cart";
 import Product from "../Product/Product";
+import { AuthContext } from "../../contexts/UserContext/UserContext";
 
 const Home = () => {
   const products = useLoaderData();
   const {cart, setCart} = useContext(CartContext);
+  const {} = useContext(AuthContext);
+
 
   useEffect(() => {
     const storedCart = getShoppingCart();
