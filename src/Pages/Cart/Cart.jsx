@@ -17,7 +17,7 @@ const Cart = ({ cart }) => {
     tax = (total * 0.1).toFixed(2);
   }
   const subtotal = shipping + total + parseFloat(tax);
-  setGrandTotal(subtotal)
+  setGrandTotal(subtotal.toFixed(2))
 
   const clearCart = () => {
     setCart([]);
@@ -44,7 +44,7 @@ const Cart = ({ cart }) => {
         </div>
         <p className="text-lg lg:text-3xl font-semibold ml-4 mt-6">
           <span className="font-bold">Grand Total:</span> $
-          {grandTotal.toFixed(2)}
+          {grandTotal}
         </p>
       </div>
       <div className="text-center mt-28">

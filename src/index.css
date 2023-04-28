@@ -5,3 +5,14 @@
 .cart{
     height: 100vh;
 }
+
+.login, .signup{
+    box-shadow: -7px 7px #fed7aa;
+    border: 1px solid black;
+}
+
+.bg-disable{
+    background-color: white;
+    color:black;
+    text-transform: none;
+}
