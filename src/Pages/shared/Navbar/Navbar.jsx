@@ -6,12 +6,13 @@ import { AuthContext } from "../../../contexts/UserContext/UserContext";
 
 const Navbar = () => {
   const { cart, grandTotal } = useContext(CartContext);
-  const { user,logOut } = useContext(AuthContext);
+  const { user, logOut } = useContext(AuthContext);
 
   let quantity = 0;
   for (const product of cart) {
     quantity = quantity + product.quantity;
   }
+  console.log(user)
 
   return (
     <div className="App bg-slate-800 text-white px-32">
@@ -97,7 +98,11 @@ const Navbar = () => {
             <div className="dropdown dropdown-end">
               <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                 <div className="w-18 rounded-full">
-                  <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" />
+                  {!user?.photoURL ? (
+                    <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" />
+                  ) : (
+                    <img src={user.photoURL} />
+                  )}
                 </div>
               </label>
 

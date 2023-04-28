@@ -27,7 +27,7 @@ const Cart = ({ cart }) => {
   return (
     <div className="m-6">
       <div>
-        <h1 className="font-bold lg:text-4xl text-xl text-center border-b-2 mb-4 pb-2 border-black">
+        <h1 className="font-bold lg:text-2xl text-xl text-center border-b-2 mb-4 pb-2 border-black">
           Order Summary
         </h1>
         <div className="text-end relative">
@@ -37,12 +37,12 @@ const Cart = ({ cart }) => {
             {quantity}
           </span>
         </div>
-        <div className="ml-6 text-md lg:text-2xl font-semibold">
+        <div className="ml-6 text-md lg:text-2xl font-semibold my-5 py-5">
           <p>Total: ${total}</p>
           <p>Shipping: ${shipping}</p>
           <p>Tax: ${tax}</p>
         </div>
-        <p className="text-lg lg:text-3xl font-semibold ml-4 mt-6">
+        <p className="text-lg lg:text-xl font-semibold ml-4 mt-6">
           <span className="font-bold">Grand Total:</span> $
           {grandTotal}
         </p>
