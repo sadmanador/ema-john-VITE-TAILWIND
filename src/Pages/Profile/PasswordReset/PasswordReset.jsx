@@ -8,4 +8,4 @@ const PasswordReset = () => {
     );
 };
 
-export default PasswordReset;reset
+export default PasswordReset;

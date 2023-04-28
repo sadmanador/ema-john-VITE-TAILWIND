@@ -5,6 +5,11 @@ import NotFound from "../Pages/shared/NotFound/NotFound";
 import OrderReview from "../Pages/RoutePages/OrderReview/OrderReview";
 import Login from "../Pages/Login/Login";
 import SignUp from "../Pages/SignUp/SignUp";
+import UpdateProfile from "../Pages/Profile/UpdateProfile/UpdateProfile";
+import PasswordReset from "../Pages/Profile/PasswordReset/PasswordReset";
+import DeleteAccount from "../Pages/Profile/DeleteAccount/DeleteAccount";
+import ProfileLayouts from "../layouts/ProfileLayouts";
+import ProfileInfo from "../Pages/Profile/ProfileInfo/ProfileInfo";
 
 export const router = createBrowserRouter([
   {
@@ -36,6 +41,28 @@ export const router = createBrowserRouter([
       {
         path: "/signUp",
         element: <SignUp></SignUp>,
+      },
+      {
+        path: "/profile",
+        element: <ProfileLayouts></ProfileLayouts>,
+        children:[
+          {
+            path: '/profile/info',
+            element: <ProfileInfo></ProfileInfo>
+          },
+          {
+            path: '/profile/update',
+            element: <UpdateProfile></UpdateProfile>
+          },
+          {
+            path: '/profile/password_change',
+            element: <PasswordReset></PasswordReset>
+          },
+          {
+            path: '/profile/delete_user',
+            element: <DeleteAccount></DeleteAccount>
+          },
+        ]
       },
     ],
   },

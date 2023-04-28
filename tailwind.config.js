@@ -4,7 +4,8 @@ export default {
   theme: {
     extend: {
       gridTemplateColumns: {
-        home: "4fr 1fr"
+        home: "4fr 1fr",
+        profile: "1fr 4fr",
       },
     },
   },

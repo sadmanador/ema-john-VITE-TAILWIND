@@ -12,7 +12,6 @@ const Navbar = () => {
   for (const product of cart) {
     quantity = quantity + product.quantity;
   }
-  console.log(user)
 
   return (
     <div className="App bg-slate-800 text-white px-32">
@@ -111,10 +110,10 @@ const Navbar = () => {
                 className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52 text-black"
               >
                 <li>
-                  <a className="justify-between">
+                  <Link to='/profile/info' className="justify-between">
                     Profile
                     <span className="badge">New</span>
-                  </a>
+                  </Link>
                 </li>
                 <li>
                   <a>Settings</a>
