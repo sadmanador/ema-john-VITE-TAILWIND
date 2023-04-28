@@ -2,11 +2,11 @@ import React, { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { CartContext } from "../../../contexts/DataContext/DataContext";
 import ThemeSwitcher from "../ThemeSwitcher/ThemeSwitcher";
-
+import { AuthContext } from "../../../contexts/UserContext/UserContext";
 
 const Navbar = () => {
   const { cart, grandTotal } = useContext(CartContext);
-  
+  const { user } = useContext(AuthContext);
 
   let quantity = 0;
   for (const product of cart) {
@@ -85,13 +85,45 @@ const Navbar = () => {
                 404
               </NavLink>
             </li>
-            <li>
-            </li>
+            <li></li>
           </ul>
         </div>
 
         {/* cart icon */}
         <div className="flex-none">
+          {/* profile Pic */}
+
+          {user?.uid ? (
+            <div className="dropdown dropdown-end mr-8">
+              <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                <div className="w-18 rounded-full">
+                  <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" />
+                </div>
+              </label>
+
+              <ul
+                tabIndex={0}
+                className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52 text-black"
+              >
+                <li>
+                  <a className="justify-between">
+                    Profile
+                    <span className="badge">New</span>
+                  </a>
+                </li>
+                <li>
+                  <a>Settings</a>
+                </li>
+                <li>
+                  <a>Logout</a>
+                </li>
+              </ul>
+            </div>
+          ) : (
+            <Link to="/login">Login</Link>
+          )}
+
+          {user?.uid && <button className="mx-8">Log Out</button>}
           <div className="dropdown dropdown-end">
             <label tabIndex={0} className="btn btn-ghost btn-circle">
               <div className="indicator">
@@ -131,33 +163,6 @@ const Navbar = () => {
                 </Link>
               </div>
             </div>
-          </div>
-
-          {/* profile Pic */}
-          <div className="dropdown dropdown-end ml-4">
-            <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-              <div className="w-18 rounded-full">
-                <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" />
-              </div>
-            </label>
-
-            <ul
-              tabIndex={0}
-              className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52 text-black"
-            >
-              <li>
-                <a className="justify-between">
-                  Profile
-                  <span className="badge">New</span>
-                </a>
-              </li>
-              <li>
-                <a>Settings</a>
-              </li>
-              <li>
-                <a>Logout</a>
-              </li>
-            </ul>
           </div>
         </div>
       </div>
