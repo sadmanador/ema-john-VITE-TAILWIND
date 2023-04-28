@@ -6,7 +6,7 @@ import { AuthContext } from "../../../contexts/UserContext/UserContext";
 
 const Navbar = () => {
   const { cart, grandTotal } = useContext(CartContext);
-  const { user } = useContext(AuthContext);
+  const { user,logOut } = useContext(AuthContext);
 
   let quantity = 0;
   for (const product of cart) {
@@ -94,7 +94,7 @@ const Navbar = () => {
           {/* profile Pic */}
 
           {user?.uid ? (
-            <div className="dropdown dropdown-end mr-8">
+            <div className="dropdown dropdown-end">
               <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                 <div className="w-18 rounded-full">
                   <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" />
@@ -115,7 +115,7 @@ const Navbar = () => {
                   <a>Settings</a>
                 </li>
                 <li>
-                  <a>Logout</a>
+                  <button onClick={logOut}>Logout</button>
                 </li>
               </ul>
             </div>
@@ -123,7 +123,6 @@ const Navbar = () => {
             <Link to="/login">Login</Link>
           )}
 
-          {user?.uid && <button className="mx-8">Log Out</button>}
           <div className="dropdown dropdown-end">
             <label tabIndex={0} className="btn btn-ghost btn-circle">
               <div className="indicator">
