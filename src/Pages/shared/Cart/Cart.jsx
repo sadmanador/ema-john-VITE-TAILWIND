@@ -4,7 +4,7 @@ import { BsFillCartFill } from "react-icons/bs";
 import { deleteShoppingCart } from "../../../utilities/fakedb";
 import { CartContext } from "../../../contexts/DataContext/DataContext";
 
-const Cart = ({ cart }) => {
+const Cart = ({ cart, children }) => {
   const { setCart, grandTotal, setGrandTotal } = useContext(CartContext);
   let quantity = 0;
   let total = 0;
@@ -32,8 +32,8 @@ const Cart = ({ cart }) => {
         </h1>
         <div className="text-end relative">
           {" "}
-          <BsFillCartFill className="inline text-6xl" />
-          <span className="badge badge-success absolute right-0 top-1 text-lg font-semibold rounded-full">
+          <BsFillCartFill className="inline text-5xl" />
+          <span className="badge badge-success absolute right-0 top-1 rounded-full">
             {quantity}
           </span>
         </div>
@@ -47,10 +47,10 @@ const Cart = ({ cart }) => {
           {grandTotal}
         </p>
       </div>
-      <div className="text-center mt-28">
+      <div className="text-center mt-8">
         {cart.length !== 0 ? (
           <button
-            className="btn btn-outline hover:bg-orange-400 hover:border-none text-lg btn-xl font-bold"
+            className="btn btn-outline hover:bg-orange-400 hover:border-none text-lg font-bold"
             onClick={clearCart}
           >
             Clear Cart <AiOutlineClear className="text-2xl" />
@@ -58,6 +58,9 @@ const Cart = ({ cart }) => {
         ) : (
           ""
         )}
+      </div>
+      <div className="text-center mt-3">
+        {cart.length !== 0 && children}
       </div>
     </div>
   );

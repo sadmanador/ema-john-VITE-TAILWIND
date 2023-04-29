@@ -54,7 +54,7 @@ const Navbar = () => {
         </div>
 
         <div className="navbar-center hidden lg:flex flex-1">
-          <ul className="menu menu-horizontal px-1 text-xl font-semibold">
+          <ul className="menu menu-horizontal px-1 font-semibold">
             <li>
               <NavLink
                 className={({ isActive, isPending }) =>

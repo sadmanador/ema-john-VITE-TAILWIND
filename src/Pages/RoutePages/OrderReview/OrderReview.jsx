@@ -40,7 +40,11 @@ const OrderReview = () => {
       </div>
       
       <div className="bg-orange-200 cart sticky top-0 lg:block hidden">
-        <Cart cart={cart}></Cart>
+        <Cart cart={cart}>
+          {
+            <button className="btn btn-error font-semibold hover:font-bold">Place Order</button>
+          }
+          </Cart>
       </div>
     </div>
   );

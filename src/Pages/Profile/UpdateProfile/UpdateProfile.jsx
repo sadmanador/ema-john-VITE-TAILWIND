@@ -4,7 +4,6 @@ import { toast } from "react-hot-toast";
 
 const UpdateProfile = () => {
   const { user, updateUserProfile } = useContext(AuthContext);
-  console.log(user)
 
   const handleUpdateProfile = (event) => {
     event.preventDefault();
@@ -26,7 +25,6 @@ const UpdateProfile = () => {
       photoURL,
     };
 
-    console.log(userData);
 
     updateUserProfile(userData)
       .then((result) => {

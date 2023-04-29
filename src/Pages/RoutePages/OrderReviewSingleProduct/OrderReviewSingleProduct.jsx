@@ -51,8 +51,8 @@ const OrderReviewSingleProduct = ({ product }) => {
           </div>
         </div>
         <div className="p-4 flex flex-col justify-between">
-          <h2 className="text-3xl font-semibold">{name}</h2>
-          <div className="mb-4 text-xl">
+          <h2 className="text-xl font-semibold">{name}</h2>
+          <div className="mb-4 text-lg">
             <p>
               <span className="font-semibold">Price:</span> $
               <span>{price}</span>
