@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
 import { AiOutlineClear } from "react-icons/ai";
 import { BsFillCartFill } from "react-icons/bs";
-import { deleteShoppingCart } from "../../utilities/fakedb";
-import { CartContext } from "../../contexts/DataContext/DataContext";
+import { deleteShoppingCart } from "../../../utilities/fakedb";
+import { CartContext } from "../../../contexts/DataContext/DataContext";
 
 const Cart = ({ cart }) => {
   const { setCart, grandTotal, setGrandTotal } = useContext(CartContext);
@@ -50,10 +50,10 @@ const Cart = ({ cart }) => {
       <div className="text-center mt-28">
         {cart.length !== 0 ? (
           <button
-            className="btn btn-outline hover:bg-orange-400 hover:border-none text-2xl btn-xl font-bold"
+            className="btn btn-outline hover:bg-orange-400 hover:border-none text-lg btn-xl font-bold"
             onClick={clearCart}
           >
-            Clear Cart <AiOutlineClear className="text-4xl" />
+            Clear Cart <AiOutlineClear className="text-2xl" />
           </button>
         ) : (
           ""

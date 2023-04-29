@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from "react";
-import Cart from "../../Cart/Cart";
+import Cart from "../../shared/Cart/Cart";
 import { CartContext } from "../../../contexts/DataContext/DataContext";
 import { useLoaderData } from "react-router-dom";
 import { getShoppingCart } from "../../../utilities/fakedb";

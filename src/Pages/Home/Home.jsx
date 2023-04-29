@@ -2,7 +2,7 @@ import React, { useContext, useEffect } from "react";
 import { useLoaderData } from "react-router-dom";
 import { CartContext } from "../../contexts/DataContext/DataContext";
 import { addToLocalStorage, getShoppingCart } from "../../utilities/fakedb";
-import Cart from "../Cart/Cart";
+import Cart from "../shared/Cart/Cart";
 import Product from "../Product/Product";
 import { AuthContext } from "../../contexts/UserContext/UserContext";
 

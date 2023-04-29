@@ -8,7 +8,11 @@ const ProfileInfo = () => {
     <div className="rounded lg:w-80 p-4 border">
       <h2 className="font-bold text-xl text-center mb-5">Info</h2>
       <form>
-        {user?.photoURL && <img src={user?.photoURL} />}
+        <div className="avatar">
+          <div className="w-24 rounded-full">
+            {user?.photoURL && <img src={user?.photoURL} />}
+          </div>
+        </div>
         <label className="block">Email</label>
         <input
           className="block border-2 py-2 px-10 rounded-md w-full"
