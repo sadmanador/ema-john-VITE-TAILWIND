@@ -10,6 +10,7 @@ import PasswordReset from "../Pages/Profile/PasswordReset/PasswordReset";
 import DeleteAccount from "../Pages/Profile/DeleteAccount/DeleteAccount";
 import ProfileLayouts from "../layouts/ProfileLayouts";
 import ProfileInfo from "../Pages/Profile/ProfileInfo/ProfileInfo";
+import PrivateRoute from "./PrivateRoute/PrivateRoute";
 
 export const router = createBrowserRouter([
   {
@@ -25,7 +26,11 @@ export const router = createBrowserRouter([
       },
       {
         path: "/order-review",
-        element: <OrderReview></OrderReview>,
+        element: (
+          <PrivateRoute>
+            <OrderReview/>
+          </PrivateRoute>
+        ),
         loader: async (params) => {
           return fetch("/fakeData/products.json");
         },
@@ -45,24 +50,24 @@ export const router = createBrowserRouter([
       {
         path: "/profile",
         element: <ProfileLayouts></ProfileLayouts>,
-        children:[
+        children: [
           {
-            path: '/profile/info',
-            element: <ProfileInfo></ProfileInfo>
+            path: "/profile/info",
+            element: <ProfileInfo></ProfileInfo>,
           },
           {
-            path: '/profile/update',
-            element: <UpdateProfile></UpdateProfile>
+            path: "/profile/update",
+            element: <UpdateProfile></UpdateProfile>,
           },
           {
-            path: '/profile/password_change',
-            element: <PasswordReset></PasswordReset>
+            path: "/profile/password_change",
+            element: <PasswordReset></PasswordReset>,
           },
           {
-            path: '/profile/delete_user',
-            element: <DeleteAccount></DeleteAccount>
+            path: "/profile/delete_user",
+            element: <DeleteAccount></DeleteAccount>,
           },
-        ]
+        ],
       },
     ],
   },

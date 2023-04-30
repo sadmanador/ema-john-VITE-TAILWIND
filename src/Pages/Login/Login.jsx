@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { AuthContext } from "../../contexts/UserContext/UserContext";
 import { Result } from "postcss";
@@ -9,6 +9,8 @@ const Login = () => {
   const { signIn, setUser } = useContext(AuthContext);
   const [error, setError] = useState(null);
   const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
 
   const handleLogin = (event) => {
     event.preventDefault();
@@ -22,7 +24,7 @@ const Login = () => {
         setUser(user);
         toast.success(`${user?.displayName} successfully logged in`);
         setError(null);
-        navigate("/");
+        navigate(from, { replace: true });
         form.reset();
       })
       .catch((err) => {
