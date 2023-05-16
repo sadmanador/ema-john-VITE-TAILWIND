@@ -7,6 +7,8 @@ import UserContext from "./contexts/UserContext/UserContext";
 import "./index.css";
 import { router } from "./routes/router";
 
+
+//router component
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <UserContext>
